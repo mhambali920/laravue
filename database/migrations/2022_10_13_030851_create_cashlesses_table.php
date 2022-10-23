@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('cashlesses', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->integer('category_id');
             $table->integer('contact_id')->nullable();
-            $table->integer('cashless_id')->nullable();
             $table->string('contact_name')->nullable();
             $table->date('date');
             $table->decimal('amount', 15, 2);
             $table->string('description')->nullable();
+            $table->date('due_date')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('cashlesses');
     }
 };

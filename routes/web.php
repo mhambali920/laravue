@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionCategoryController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CashlessController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -37,5 +38,7 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('/category', TransactionCategoryController::class)->parameter('category', 'transactionCategory');
     Route::resource('/contact', ContactController::class);
+    Route::get('tanggal', [TransactionController::class, 'getTransaction']);
     Route::resource('/transaction', TransactionController::class);
+    Route::resource('/cashless', CashlessController::class);
 });
